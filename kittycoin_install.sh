@@ -10,7 +10,7 @@ COIN_TGZ='https://github.com/zoldur/Kittycoin/releases/download/v1.0.0.0/kittyco
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Kitty'
 COIN_PORT=51473
-RPC_PORT=51473
+RPC_PORT=51474
 
 NODEIP=$(curl -s4 api.ipify.org)
 
@@ -81,6 +81,7 @@ function create_config() {
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
 rpcallowip=127.0.0.1
+rpcport=$RPC_PORT
 listen=1
 server=1
 daemon=1
