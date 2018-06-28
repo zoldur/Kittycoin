@@ -10,7 +10,7 @@ COIN_TGZ='https://github.com/zoldur/Kittycoin/releases/download/v1.0.0.0/kittyco
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Kitty'
 COIN_PORT=51473
-RPCPORT=51473
+RPC_PORT=51473
 
 NODEIP=$(curl -s4 api.ipify.org)
 
