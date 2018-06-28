@@ -25,7 +25,7 @@ function download_node() {
   wget -q $COIN_TGZ
   tar xvzf $COIN_ZIP -C $COIN_PATH >/dev/null 2>&1
   compile_error
-  chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI 
+  chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
   cd - >/dev/null 2>&1
   rm -r $TMP_FOLDER >/dev/null 2>&1
   clear
@@ -80,7 +80,6 @@ function create_config() {
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
-rpcport=$RPC_PORT
 rpcallowip=127.0.0.1
 listen=1
 server=1
@@ -120,8 +119,6 @@ maxconnections=256
 masternode=1
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
-addnode=140.82.49.33
-addnode=144.202.96.151
 EOF
 }
 
@@ -198,7 +195,7 @@ apt-get update >/dev/null 2>&1
 apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" make software-properties-common \
 build-essential libtool autoconf libssl-dev libboost-dev libboost-chrono-dev libboost-filesystem-dev libboost-program-options-dev \
 libboost-system-dev libboost-test-dev libboost-thread-dev sudo automake git wget curl libdb4.8-dev bsdmainutils libdb4.8++-dev \
-libminiupnpc-dev libgmp3-dev ufw pkg-config libevent-dev  libdb5.3++ libzmq5 >/dev/null 2>&1
+libminiupnpc-dev libgmp3-dev ufw pkg-config libevent-dev libzmq5 >/dev/null 2>&1
 if [ "$?" -gt "0" ];
   then
     echo -e "${RED}Not all required packages were installed properly. Try to install them manually by running the following commands:${NC}\n"
@@ -208,7 +205,7 @@ if [ "$?" -gt "0" ];
     echo "apt-get update"
     echo "apt install -y make build-essential libtool software-properties-common autoconf libssl-dev libboost-dev libboost-chrono-dev libboost-filesystem-dev \
 libboost-program-options-dev libboost-system-dev libboost-test-dev libboost-thread-dev sudo automake git curl libdb4.8-dev \
-bsdmainutils libdb4.8++-dev libminiupnpc-dev libgmp3-dev ufw fail2ban pkg-config libevent-dev libzmq5"
+bsdmainutils libdb4.8++-dev libminiupnpc-dev libgmp3-dev ufw pkg-config libevent-dev libzmq5"
  exit 1
 fi
 
